@@ -13,8 +13,33 @@ var scores, roundScore, activePlayer;
 
 scores = [0, 0];
 roundScore = 0;
-activePlayer = 1;
+activePlayer = 0;
 
-dice = Math.floor(Math.random() * 6) + 1;
+// document.querySelector('#current-' + activePlayer).textContent = dice;
 
-document.querySelector('#current-' + activePlayer).textContent = dice;
+document.getElementById('score-0').textContent = '0';
+document.getElementById('score-1').textContent = '0';
+document.getElementById('current-0').textContent = '0';
+document.getElementById('current-1').textContent = '0';
+
+document.querySelector('.dice').style.display = 'none';
+
+document.querySelector('.btn-roll').addEventListener('click', function() {
+  //1. we need a random number
+  dice = Math.floor(Math.random() * 6) + 1;
+
+  //2. display the result
+  var diceDOM = document.querySelector('.dice');
+  diceDOM.style.display = 'block';
+  diceDOM.src = 'dice-' + dice + '.png';
+
+  //3. update the round score if the number was not zero
+  if (dice !== 1) {
+    //add score
+    roundScore += dice;
+    document.querySelector('#current-' + activePlayer).textContent = roundScore;
+  } else {
+    //next player
+    activePlayer === 0 ? (activePlayer = 1) : (activePlayer = 0);
+  }
+});
