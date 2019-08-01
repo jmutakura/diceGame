@@ -50,3 +50,7 @@ document.querySelector('.btn-roll').addEventListener('click', function() {
     document.querySelector('.player-1-panel').classList.toggle('active');
   }
 });
+
+document.querySelector('.btn-hold').addEventListener('click', function() {
+  
+})
