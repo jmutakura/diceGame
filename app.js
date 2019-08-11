@@ -74,3 +74,7 @@ document.querySelector('.btn-hold').addEventListener('click', function() {
     document.querySelector('.dice').style.display = 'none';
   }
 });
+
+document.querySelector('.btn-hold').addEventListener('click', function() {
+  
+})
